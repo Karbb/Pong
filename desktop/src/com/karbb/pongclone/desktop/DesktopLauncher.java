@@ -10,6 +10,7 @@ public class DesktopLauncher {
 		config.title = "Pong";
 		config.width = 800;
 		config.height = 600;
+		config.foregroundFPS = 60;
 		new LwjglApplication(new PongGame(), config);
 	}
 }
