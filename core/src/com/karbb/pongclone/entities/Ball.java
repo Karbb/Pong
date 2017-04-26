@@ -13,7 +13,7 @@ public class Ball extends Entity {
 
 	public Ball(float x, float y) {
 		super(AssetLoader.BALL_TEXTURE, x, y);
-		velocity.set(0,200);
+		velocity.set(200,200);
 	}
 	
 	public void update(float deltaTime) {

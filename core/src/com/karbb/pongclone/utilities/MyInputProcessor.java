@@ -6,20 +6,29 @@ import com.karbb.pongclone.entities.Paddle;
 
 public class MyInputProcessor implements InputProcessor {
 
-	Paddle paddle;
+	Paddle paddle1;
+	Paddle paddle2;
 
-	public MyInputProcessor(Paddle paddle) {
-		this.paddle = paddle;
+	public MyInputProcessor(Paddle paddle1, Paddle paddle2) {
+		this.paddle1 = paddle1;
+		this.paddle2 = paddle2;
 	}
 
 	@Override
 	public boolean keyDown(int keycode) {
 		switch (keycode) {
 		case Keys.LEFT:
-			paddle.setLeftMove(true);
+			paddle1.setLeftMove(true);
 			break;
 		case Keys.RIGHT:
-			paddle.setRightMove(true);
+			paddle1.setRightMove(true);
+			break;
+
+		case Keys.A:
+			paddle2.setLeftMove(true);
+			break;
+		case Keys.D:
+			paddle2.setRightMove(true);
 			break;
 		}
 		return true;
@@ -29,10 +38,17 @@ public class MyInputProcessor implements InputProcessor {
 	public boolean keyUp(int keycode) {
 		switch (keycode) {
 		case Keys.LEFT:
-			paddle.setLeftMove(false);
+			paddle1.setLeftMove(false);
 			break;
 		case Keys.RIGHT:
-			paddle.setRightMove(false);
+			paddle1.setRightMove(false);
+			break;
+
+		case Keys.A:
+			paddle2.setLeftMove(false);
+			break;
+		case Keys.D:
+			paddle2.setRightMove(false);
 			break;
 		}
 		return true;

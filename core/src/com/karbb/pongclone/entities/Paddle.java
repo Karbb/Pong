@@ -9,7 +9,7 @@ public class Paddle extends Entity {
 	private boolean rightMove;
 
 	private static final float SPEED = 300;
-	
+
 	public static final float HEIGHT = 10;
 	public static final float WIDTH = 100;
 
@@ -19,9 +19,9 @@ public class Paddle extends Entity {
 
 	@Override
 	public void update(float deltaTime) {
-		if (leftMove && position.x > 0) {
+		if (leftMove && position.x - SPEED * deltaTime > 0) {
 			velocity.x = -SPEED;
-		} else if (rightMove && position.x < Gdx.graphics.getWidth() - bounds.width) {
+		} else if (rightMove && position.x + SPEED * deltaTime < Gdx.graphics.getWidth() - bounds.width) {
 			velocity.x = SPEED;
 		} else {
 			velocity.x = 0;
