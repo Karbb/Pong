@@ -17,6 +17,8 @@ public class Entity {
 	public Vector2 accel;
 	public Rectangle bounds;
 
+	public Vector2 initialPosition;
+
 	public Entity(String textureFile, float x, float y) {
 		entityTexture = new Texture(Gdx.files.internal(textureFile));
 		entitySprite = new Sprite(entityTexture);
@@ -25,6 +27,7 @@ public class Entity {
 		velocity = new Vector2();
 		accel = new Vector2();
 		entitySprite.setPosition(position.x, position.y);
+		initialPosition = new Vector2(x, y);
 	}
 
 	public void update(float deltaTime) {
@@ -40,6 +43,10 @@ public class Entity {
 		} else {
 			return false;
 		}
+	}
+
+	public void resetPosition() {
+		position.set(initialPosition);
 	}
 
 	public void setPosition(float x, float y) {
